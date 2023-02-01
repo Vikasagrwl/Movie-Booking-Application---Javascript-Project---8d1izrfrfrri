@@ -146,8 +146,8 @@ function showMovies(data){
         const {title, poster_path, vote_average, overview}=movie;
         const movieEL = document.createElement('div');
         movieEL.classList.add('movie');
-        movieEL.innerHTML = `
-        <img src="${IMG_URL+poster_path}" alt="${title}" srcset="">
+        movieEL.innerHTML = `<a href="checkout.html?movie-name=${title}" >
+            <img src="${IMG_URL+poster_path}" alt="${title}" srcset="">
             <div class="movie-info">
                 <h3>${title}</h3>
                 <span class="${getcolor(vote_average)}">${vote_average}</span>
@@ -156,6 +156,7 @@ function showMovies(data){
                 <h3>Overview</h3>
                 ${overview}
             </div>
+            </a>
         
         `
         main.appendChild(movieEL);
