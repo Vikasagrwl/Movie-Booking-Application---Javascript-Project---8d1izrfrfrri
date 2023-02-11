@@ -142,25 +142,51 @@ function getMovies(url){
 
 function showMovies(data){
     main.innerHTML = '';
-    data.forEach(movie => {
-        const {title, poster_path, vote_average, overview}=movie;
+    data.forEach((movie, index) => {
+        const {title, poster_path, vote_average, overview, id}=movie;
+        // console.log(overview);
         const movieEL = document.createElement('div');
         movieEL.classList.add('movie');
-        movieEL.innerHTML = `<a href="checkout.html?movie-name=${title}" >
+        // href="checkout.html?movie-name=${title}"
+        // href="checkout.html?movie-id=${id}""
+        movieEL.innerHTML = `<a onclick="showpopup(${index})" >
             <img src="${IMG_URL+poster_path}" alt="${title}" srcset="">
             <div class="movie-info">
                 <h3>${title}</h3>
                 <span class="${getcolor(vote_average)}">${vote_average}</span>
             </div>
+            
+            </a>
             <div class="overview">
+            <h3>${title}</h3>
                 <h3>Overview</h3>
                 ${overview}
+                <a href="checkout.html?movie-id=${id}">
+                <button type="submit" id="book-ticket">Book ticket </button>
+                </a>
             </div>
-            </a>
-        
         `
         main.appendChild(movieEL);
     });
+}
+
+let flag=false;
+let clicked;
+function showpopup(index){
+    if(!flag){
+        const ele=document.getElementsByClassName('overview')[index];
+        ele.classList.add("showpopup");
+        clicked=index;
+        flag=true;
+    }
+    else{
+        let ele=document.getElementsByClassName('overview')[clicked];
+        ele.classList.remove("showpopup");
+        ele=document.getElementsByClassName('overview')[index];
+        ele.classList.add("showpopup");
+        clicked=index;
+    }
+    
 }
 
 function getcolor(vote){
@@ -185,3 +211,7 @@ form.addEventListener('submit', (e)=>{
         getMovies(API_URL)
     }
 })
+// function search(e){
+//     console.log(e.val());
+// }
+// use debounce here for fetching the movies..

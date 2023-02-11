@@ -1,7 +1,18 @@
 const url=new URLSearchParams(window.location.search);
-const clickedMovie=url.get('movie-name');
+const movieID=url.get('movie-id');
+const API_URL="https://api.themoviedb.org/3/movie/"+movieID+"?api_key=ba215763d6fdc77f212907452ba34e9f";
 const movieName=document.querySelector('.movie-name');
-movieName.textContent=clickedMovie;
+fetch(API_URL).then(res => res.json()).then(data =>{
+    if(Object.keys(data).length==3){
+        console.log("error");
+        document.write("404 error!! No movies found for the given URL Plaese try again..");
+    }
+    else{
+        movieName.textContent=data.original_title;
+    }
+    
+})
+
 const numberOfTickets=document.getElementById('number-of-ticket');
 const tax=document.querySelector('#fee');
 const total=document.querySelector('#subtotal')
@@ -30,7 +41,7 @@ function displayPaymentMethod(){
         </div>`
     }
 
-    if(debit.checked){
+    else if(debit.checked){
         paymentDetail.innerHTML=`
         <label for="nameOnCard">Name on card</label><br>
         <input type="text" id="nameOnCard"><br>
@@ -44,7 +55,7 @@ function displayPaymentMethod(){
         </div>`
     }
 
-    if(upi.checked){
+    else if(upi.checked){
         paymentDetail.innerHTML=`<label for="upi-id">UPI ID</label><br>
         <input type="text" id="upi-id" placeholder="xyz@abcbank"><br>
         <button>Verify UPI ID</button>`

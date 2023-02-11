@@ -23,7 +23,7 @@
             <div class="price"><div>Classic Ticket </div><div>&#8377;250</div></div>
             <div class="ticketCount">
                 <label for="number-of-ticket">Number of Tickets</label>
-                <input type="number" id="number-of-ticket" onkeyup="getAmount()">
+                <input type="number" id="number-of-ticket" min="1" onkeyup="getAmount()" oninput="validity.valid||(value='');">
             </div>
             <div class="fee"><div>Convenience Fee</div> <div>&#8377;<span  id="fee">0</span></div></div>
             <div class="total">
@@ -59,23 +59,6 @@
                         <label for="cvv">CVV</label><br>
                         <input type="password" id="cvv">
                     </div>
-
-                    <!-- debit card -->
-                    <!-- <label for="nameOnCard">Name on card</label><br>
-                    <input type="text" id="nameOnCard"><br>
-                    <label for="debitCardNumber">Debit Card Number</label><br>
-                    <input type="number" id="debitCardNumber"><br>
-                    <div>
-                        <label for="expiry">Expiry</label><br>
-                        <input type="date" id="expiry"><br>
-                        <label for="cvv">CVV</label><br>
-                        <input type="password" id="cvv">
-                    </div> -->
-
-                    <!-- upi -->
-                    <!-- <label for="upi-id">UPI ID</label>
-                    <input type="text" id="upi-id" placeholder="xyz@abcbank">
-                    <button>Verify UPI ID</button> -->
                 </div>
                 <button class="submit">Proceed To Pay</button>
             </form>

@@ -39,16 +39,19 @@ header {
 }
 main{
     display: flex;
+    /* flex-wrap: nowrap; */
+    flex-shrink: 0;
     position: relative;
 }
 .genre{
+    display: flex;
+    flex-direction: column;
     height: 100%;
     width: 120px;
     color: white;
     margin:0px;
     padding: 0;
-    text-align: center;
-    list-style-type:none;
+    margin-right: 1rem;
 }
 .genre p{
     font-weight: bold;
@@ -62,9 +65,10 @@ main{
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
+    overflow: hidden;
 }
 .movie {
-    width: 280px;
+    width: 17rem;
     margin: 1rem;
     border-radius: 3px;
     box-shadow: 0.2px 4px 5px rgba(0, 0, 0, 0.1);
@@ -103,6 +107,7 @@ main{
 }
 .overview {
     position: absolute;
+    text-align: center;
     left: 0;
     right: 0;
     bottom: 0;
@@ -111,8 +116,10 @@ main{
     max-height: 100%;
     transform: translateY(101%);
     transition: transform 0.4s ease-in;
+    visibility: hidden;
 }
-.movie:hover .overview{
+.showpopup{
+    visibility: visible ;
     transform: translateY(0);
 }
 
@@ -155,4 +162,14 @@ main{
     margin: 100px auto;
     font-size: 30px;
     font-weight: bold;
+}
+
+#book-ticket{
+    width: 90%;
+    height: 1.5rem;
+    color: white;
+    font-weight: bold;
+    font-size: 1rem;
+    background-color: #373b69;
+    
 }
