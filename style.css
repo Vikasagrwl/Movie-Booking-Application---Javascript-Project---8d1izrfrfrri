@@ -47,7 +47,7 @@ main{
     display: flex;
     flex-direction: column;
     height: 100%;
-    width: 120px;
+    /* width: 120px; */
     color: white;
     margin:0px;
     padding: 0;
@@ -75,6 +75,7 @@ main{
     background-color: var(--secondary-color);
     position: relative;
     overflow: hidden;
+    max-height: 500px;
 }
 .movie img {
     width: 100%;
