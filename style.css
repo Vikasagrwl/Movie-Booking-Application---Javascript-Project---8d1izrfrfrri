@@ -175,3 +175,9 @@ main{
     background-color: #373b69;
     
 }
+
+@media screen and (max-width: 600px) {
+    #main{
+        flex-direction: column ;
+    }
+}
