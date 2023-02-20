@@ -29,7 +29,8 @@ const upi=document.getElementById('upi');
 const paymentDetail=document.querySelector('.paymentDetail');
 function displayPaymentMethod(){
     if(credit.checked){
-        paymentDetail.innerHTML=`<label for="nameOnCard">Name on card</label><br>
+        paymentDetail.innerHTML=`
+        <label for="nameOnCard">Name on card</label><br>
         <input type="text" id="nameOnCard"><br>
         <label for="creditCardNumber">Credit Card Number</label><br>
         <input type="number" id="creditCardNumber"><br>

@@ -20,32 +20,40 @@
         <div class="summary">
             <h3>Summary</h3>
             <div class="movie-name"></div>
-            <div class="price"><div>Classic Ticket </div><div>&#8377;250</div></div>
+            <div class="price"><div>Classic Ticket </div><span>&#8377;250</span></div>
             <div class="ticketCount">
-                <label for="number-of-ticket">Number of Tickets</label>
+                <div class="label">
+                <label for="number-of-ticket" >Number of Tickets</label>
+                </div>
+                <div class="input">
                 <input type="number" id="number-of-ticket" min="1" onkeyup="getAmount()" oninput="validity.valid||(value='');">
+                </div>  
             </div>
-            <div class="fee"><div>Convenience Fee</div> <div>&#8377;<span  id="fee">0</span></div></div>
+            <div class="fee"><div >Convenience Fee</div> <div>&#8377;<span  id="fee">0</span></div></div>
             <div class="total">
-                <div>Sub total</div>  <div >&#8377;<span id="subtotal">0</span></div>
+                <div>Sub total</div>  <div>&#8377;<span id="subtotal">0</span></div>
             </div>
         </div>
         <div class="paymentMethod">
             <form action="">
                 <h3>Payment Info</h3>
                 <label for="fname">First Name</label>
-                <input type="text" id="fname" placeholder="first name">
+                <input type="text" id="fname" placeholder="first name"><br>
                 <label for="lname">Last Name</label>
-                <input type="text" id="lname" placeholder="last name">
+                <input type="text" id="lname" placeholder="last name"><br>
                 <label for="email">Email</label>
-                <input type="email" id="email" placeholder="you@Example.com"><br>
-                Card Type
-                <input type="radio" id="credit-card" value="credit-card" name="paymethod" checked onclick="displayPaymentMethod()">
-                <label for="credit-card">Credit Card</label>
-                <input type="radio" id="debit-card" value="debit-card" name="paymethod" onclick="displayPaymentMethod()">
-                <label for="debit-card">Debit Card</label>
-                <input type="radio" id="upi" value="upi" name="paymethod" onclick="displayPaymentMethod()">
-                <label for="upi">UPI</label>
+                <input type="email" id="email" placeholder="you@Example.com"><br>               
+                <div class="card_type">
+                    <div>Card Type</div>
+                    <div>
+                        <input type="radio" id="credit-card" value="credit-card" name="paymethod" checked onclick="displayPaymentMethod()">
+                        <label for="credit-card">Credit Card</label>
+                        <input type="radio" id="debit-card" value="debit-card" name="paymethod" onclick="displayPaymentMethod()">
+                        <label for="debit-card">Debit Card</label>
+                        <input type="radio" id="upi" value="upi" name="paymethod" onclick="displayPaymentMethod()">
+                        <label for="upi">UPI</label>
+                    </div>  
+                </div>
                 <div class="paymentDetail">
 
                     <!-- credit card -->
@@ -53,11 +61,15 @@
                     <input type="text" id="nameOnCard"><br>
                     <label for="creditCardNumber">Credit Card Number</label><br>
                     <input type="number" id="creditCardNumber"><br>
-                    <div>
-                        <label for="expiry">Expiry</label><br>
-                        <input type="date" id="expiry"><br>
-                        <label for="cvv">CVV</label><br>
-                        <input type="password" id="cvv">
+                    <div class="config">
+                        <div class="expiry_date">
+                            <label for="expiry">Expiry</label>
+                            <input type="date" id="expiry">
+                        </div>
+                        <div class="cvv_number"> 
+                            <label for="cvv">CVV</label>
+                            <input type="password" id="cvv">
+                        </div>  
                     </div>
                 </div>
                 <button class="submit">Proceed To Pay</button>

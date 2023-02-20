@@ -75,7 +75,7 @@ main{
     background-color: var(--secondary-color);
     position: relative;
     overflow: hidden;
-    max-height: 500px;
+    max-height: 465px;
 }
 .movie img {
     width: 100%;

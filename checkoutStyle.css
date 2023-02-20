@@ -47,9 +47,11 @@ h2{
 .summary,.paymentMethod{
     border: 1px solid black;
     background-color: #373b69;
+    overflow: hidden;
 }
 .summary{
     width: 25%;
+    height: max-content;
     padding: 5px;
     font-weight: bold;
     position:static;
@@ -79,7 +81,7 @@ h2{
     justify-content: space-between;
     margin-right: 7px;
 }
-.ticketCount input{
+.ticketCount .input{
     color: black;
 }
 .fee{
@@ -92,10 +94,8 @@ h2{
     justify-content: space-between;
     margin-right: 5px;
 }
-
-.paymentMethod{
+form{
     padding: 5px;
-    line-height: 0.5;
 }
 form h3{
     text-align: center;
@@ -114,12 +114,32 @@ form button{
     display: flex;
     flex-direction: column;
     padding-top: 10px;
+    line-height: .5;
 }
-.paymentDetail div{
+.config{
     display: flex;
-    justify-content: space-evenly;
+    /* justify-content: space-evenly; */
+}
+.expiry_date, .cvv_number{
+    display: flex;
 }
 .submit{
     background-color: greenyellow;
 }
 
+
+@media screen and (max-width: 600px) {
+    .ticketCount{
+        display: block;
+    }
+    .label, .input{
+      width: 100%;
+      margin-top: 0;
+    }
+    .config{
+        display: block;
+        flex-wrap: wrap;
+    }
+
+
+  }
